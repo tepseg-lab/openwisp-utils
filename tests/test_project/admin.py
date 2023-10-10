@@ -75,7 +75,7 @@ class OperatorInline(HelpTextStackedInline):
     extra = 0
     help_text = {
         'text': _('Only added operators will have permission to access the project.'),
-        'documentation_url': 'https://github.com/openwisp/openwisp-utils/',
+        'documentation_url': 'https://github.com/tepseg-lab/openwisp-utils/',
     }
 
 

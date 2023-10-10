@@ -19,7 +19,7 @@ OPENWISP_EMAIL_TEMPLATE = getattr(
 OPENWISP_EMAIL_LOGO = getattr(
     settings,
     'OPENWISP_EMAIL_LOGO',
-    'https://raw.githubusercontent.com/openwisp/openwisp-utils/master/openwisp_utils/'
+    'https://raw.githubusercontent.com/tepseg-lab/openwisp-utils/master/openwisp_utils/'
     'static/openwisp-utils/images/openwisp-logo.png',
 )
 

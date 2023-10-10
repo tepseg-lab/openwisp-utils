@@ -285,7 +285,7 @@ class TestAdmin(AdminTestMixin, CreateMixin, TestCase):
         self.assertContains(
             response, 'Only added operators will have permission to access the project.'
         )
-        self.assertContains(response, 'https://github.com/openwisp/openwisp-utils/')
+        self.assertContains(response, 'https://github.com/tepseg-lab/openwisp-utils/')
         # Response should contain static in 'icon_url'
         self.assertContains(
             response, '<img src="/static/admin/img/icon-alert.svg">', html=True

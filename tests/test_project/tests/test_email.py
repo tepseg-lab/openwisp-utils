@@ -24,7 +24,7 @@ class TestEmail(TestCase):
         self.assertEqual(email.from_email, 'test@openwisp.io')
         # test image logo
         self.assertIn(
-            'https://raw.githubusercontent.com/openwisp/openwisp-utils/master/'
+            'https://raw.githubusercontent.com/tepseg-lab/openwisp-utils/master/'
             'openwisp_utils/static/openwisp-utils/images/openwisp-logo.png',
             email.alternatives[0][0],
         )
