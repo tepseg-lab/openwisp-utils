@@ -265,7 +265,7 @@ select { height: 36px; padding: 0 12px; }
   left: -27px;
 }
 .related-widget-wrapper .change-related { margin-left: 7px; }
-#main .form-row { padding: 150px; box-sizing: border-box; }
+#main .form-row { padding: 15px; box-sizing: border-box; }
 #main .inline-group .tabular td.original p { height: auto; }
 #main .inline-group thead th {
   background: transparent;
