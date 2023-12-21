@@ -19,7 +19,7 @@ class OpenwispAdminSite(admin.AdminSite):
     site_header = getattr(settings, 'OPENWISP_ADMIN_SITE_HEADER', 'OpenWISP')
     # text at the top of the admin index page
     index_title = gettext_lazy(
-        getattr(settings, 'OPENWISP_ADMIN_INDEX_TITLE', 'Network Administration11')
+        getattr(settings, 'OPENWISP_ADMIN_INDEX_TITLE', 'Network Administration22')
     )
     enable_nav_sidebar = False
 
