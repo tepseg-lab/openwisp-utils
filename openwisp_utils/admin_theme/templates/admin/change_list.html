@@ -40,11 +40,10 @@
       {{ cl.opts.app_config.verbose_name }}
     </a>
     &rsaquo; 
-    {% comment %} {{ cl.opts.verbose_name_plural|capfirst }} {% endcomment %}
     {% with cl.opts.verbose_name_plural|escape as name %}
         {% if name|upper == "DEVICES"  %}
             {% blocktrans %}
-                AP
+                APs
             {% endblocktrans %}
         {% elif name|upper == "TEMPLATES"%}
             {% blocktrans %}
