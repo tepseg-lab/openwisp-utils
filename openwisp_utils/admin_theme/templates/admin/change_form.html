@@ -1,9 +1,89 @@
 {% extends "admin/change_form.html" %}
-{% block admin_change_form_document_ready %}
-{{ block.super }}
-{% if copyable_fields %}
-    <script>
-        window.copyableFields = {{ copyable_fields | safe }} || [];
-    </script>
-{% endif %}
+{% load i18n admin_urls %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans "Home" %}</a> &rsaquo;
+        <a href="{% url 'admin:app_list' app_label=opts.app_label %}">
+            {{ opts.app_config.verbose_name }}
+        </a> &rsaquo; 
+        {% if has_view_permission %}
+            <a href="{% url opts|admin_urlname:'changelist' %}">
+                {% comment %} {{ opts.verbose_name_plural|capfirst }} {% endcomment %}
+                {% with opts.verbose_name_plural|escape as name %}
+                {% if name|upper == "DEVICES"  %}
+                    {% blocktrans %}
+                        AP
+                    {% endblocktrans %}
+                {% elif name|upper == "TEMPLATES"%}
+                    {% blocktrans %}
+                        Setting Types
+                    {% endblocktrans %}
+                {% elif name|upper == "DEVICE GROUPS"%}
+                    {% blocktrans %}
+                        AP Groups
+                    {% endblocktrans %}
+                {% else %}
+                    {% blocktrans %}
+                        {{ name }}
+                    {% endblocktrans %}
+                {% endif %}
+            {% endwith %}
+            </a>
+        {% else %}
+            {% comment %} {{ opts.verbose_name_plural|capfirst }} {% endcomment %}
+            {% with opts.verbose_name_plural|escape as name %}
+                {% if name|upper == "DEVICES"  %}
+                    {% blocktrans %}
+                        AP
+                    {% endblocktrans %}
+                {% elif name|upper == "TEMPLATES"%}
+                    {% blocktrans %}
+                        Setting Types
+                    {% endblocktrans %}
+                {% elif name|upper == "DEVICE GROUPS"%}
+                    {% blocktrans %}
+                        AP Groups
+                    {% endblocktrans %}
+                {% else %}
+                    {% blocktrans %}
+                        {{ name }}
+                    {% endblocktrans %}
+                {% endif %}
+            {% endwith %}
+        {% endif %} &rsaquo; 
+        {% if add %}
+            {% with name=opts.verbose_name %}
+                {% if name|upper == "DEVICES"  %}
+                    {% blocktrans %}
+                        Add AP
+                    {% endblocktrans %}
+                {% elif name|upper == "TEMPLATE"%}
+                    {% blocktrans %}
+                        Add Setting Type
+                    {% endblocktrans %}
+                {% elif name|upper == "DEVICE GROUP"%}
+                    {% blocktrans %}
+                        Add AP Group
+                    {% endblocktrans %}
+                {% else %}
+                    {% blocktrans %}
+                        Add {{ name }}
+                    {% endblocktrans %}
+                {% endif %}
+            {% endwith%}
+        {% else %}
+            {{ original|truncatewords:"18" }}
+        {% endif %}
+    </div>
 {% endblock %}
+
+
+{% block admin_change_form_document_ready %}
+    {{ block.super }}
+    {% if copyable_fields %}
+        <script>
+            window.copyableFields = {{ copyable_fields | safe }} || [];
+        </script>
+    {% endif %}
+{% endblock admin_change_form_document_ready %}

@@ -1,7 +1,7 @@
 {% extends "./base.html" %}
 {% load static i18n %}
 
-{% block title %}{{ title }} | {{ site_title }}{% endblock %}
+{% block title %}{{ title }} | {{ site_title }}{% endblock title %}
 
 {% block extrastyle %}
 {{ block.super }}
@@ -14,7 +14,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'admin/css/openwisp.css' %}" />
   <link rel="icon" type="image/x-icon" href="{% static 'ui/openwisp/images/favicon.png' %}" />
 {% endif %}
-{% endblock %}
+{% endblock extrastyle %}
 
 {% block menu-bar %}
   <div class="head">
@@ -22,7 +22,7 @@
     <span></span></span>
     <h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header }}</a></h1>
   </div>
-{% endblock %}
+{% endblock menu-bar %}
 
 {% block user-tools %}
   <div  class="account">
@@ -52,8 +52,12 @@
       </li>
     </ul>
   </div>
-{% endblock  %}
-{% block menu %}{% include "./menu.html" %}{% endblock %}
+{% endblock user-tools %}
+
+{% comment %} sidebar {% endcomment %}
+{% block menu %}
+  {% include "./menu.html" %}
+{% endblock menu %}
 
 {% block footer %}
 <div id="ow-loading" class="ow-overlay">
@@ -75,4 +79,4 @@
         <script src="{{ js }}"></script>
     {% endfor %}
 {% endif %}
-{% endblock %}
+{% endblock footer %}
