@@ -78,6 +78,20 @@
     </div>
 {% endblock %}
 
+{% block field_sets %}
+{% for fieldset in adminform %}
+  {% include "admin/includes/fieldset.html" %}
+{% endfor %}
+
+{% endblock field_sets %}
+
+{% block after_field_sets %}{% endblock %}
+
+{% block inline_field_sets %}
+{% for inline_admin_formset in inline_admin_formsets %}
+    {% include inline_admin_formset.opts.template %}
+{% endfor %}
+{% endblock %}
 
 {% block admin_change_form_document_ready %}
     {{ block.super }}
@@ -87,3 +101,5 @@
         </script>
     {% endif %}
 {% endblock admin_change_form_document_ready %}
+
+
