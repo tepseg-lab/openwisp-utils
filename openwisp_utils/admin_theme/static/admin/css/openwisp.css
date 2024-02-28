@@ -1718,3 +1718,12 @@ body::-webkit-scrollbar {
     width: auto !important;
   }
 }
+
+.form-row.field-image {
+  overflow-x: auto;
+}
+
+.form-row.field-image .floorplan-image img {
+  max-width: 100%; 
+  height: auto; 
+}
